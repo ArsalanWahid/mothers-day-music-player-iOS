@@ -9,10 +9,12 @@
 import UIKit
 
 class SecondViewController: UIViewController{
-    
+
+
+    //MARK:- Outlets
     @IBOutlet weak var songName: UILabel!
     
-    
+    //MARK:- View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         tabBarItem.selectedImage = UIImage(named: "play")!.withRenderingMode(.alwaysOriginal)
@@ -22,12 +24,8 @@ class SecondViewController: UIViewController{
     override func viewDidAppear(_ animated: Bool) {
         songName.text = mySongs[thisSong]
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
+
+    //MARK:- Actions
     @IBAction func play(_ sender: UIButton) {
         
         if (audioloaded == true && audioPlayer.isPlaying == false){

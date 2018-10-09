@@ -14,11 +14,14 @@ var thisSong = 0                //updates which row is going to be played or bei
 
 class FirstViewController: UIViewController , UITableViewDataSource , UITableViewDelegate {
 
+    //MARK:- Properties
+    var findSongs = playerModel()
 
+    //MARK:- Outlets
     @IBOutlet weak var table: UITableView!
-    lazy var findSongs = playerModel()
+
     
-    
+    //MARK:- View life cycle
     override func viewDidLoad() {
         findSongs.getSongsNamesFromBundle()
         mySongs = findSongs.getSongNames()
@@ -28,12 +31,8 @@ class FirstViewController: UIViewController , UITableViewDataSource , UITableVie
         
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        
-    }
 
-    
+    //MARK: - TableView Data Source
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return mySongs.count
     }
