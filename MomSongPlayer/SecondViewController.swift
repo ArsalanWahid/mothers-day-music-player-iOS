@@ -15,6 +15,8 @@ class SecondViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tabBarItem.selectedImage = UIImage(named: "play")!.withRenderingMode(.alwaysOriginal)
+
     }
     
     override func viewDidAppear(_ animated: Bool) {

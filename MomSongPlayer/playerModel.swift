@@ -61,15 +61,16 @@ struct playerModel{
     
     
     func allowPlayBack() {
-        let playback = AVAudioSession.sharedInstance()
-        do{
-            try playback.setCategory(AVAudioSessionCategoryPlayback)
-        }
-        catch{
-            print("Audio Session Could not be made")
+        let audioSession = AVAudioSession.sharedInstance()
+        do {
+            try audioSession.setCategory(AVAudioSession.Category.playback, mode: .default)
+            try audioSession.setActive(true)
+        } catch {
+            print("Setting category to AVAudioSessionCategoryPlayback failed.")
         }
     }
     
     
     
 }
+
